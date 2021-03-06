@@ -30,23 +30,34 @@ if (request.getParameter("itemID") != null)
 <title>Items Management</title>
 </head>
 <body>
-<h1>Items Management</h1>
+
+
+<div class="container">
+ <div class="row">
+ <div class="col">
+ <h1>Items Management</h1>
 <form method="post" action="items.jsp">
- 	Item code: <input name="itemCode" type="text"><br>
- 	Item name: <input name="itemName" type="text"><br>
- 	Item price: <input name="itemPrice" type="text"><br>
- 	Item description: <input name="itemDesc" type="text"><br>
- 	<input name="btnSubmit" type="submit" value="Save">
+ 	Item code: <input name="itemCode" class="form-control" type="text"><br>
+ 	Item name: <input name="itemName" class="form-control" type="text"><br>
+ 	Item price: <input name="itemPrice" class="form-control" type="text"><br>
+ 	Item description: <input name="itemDesc" class="form-control" type="text"><br>
+    <input name="btnSubmit" type="submit" value="Save" class="btn btn-primary">
+    
+     
 </form>
-<%
- out.print(session.getAttribute("statusMsg"));
-%>
+<div class="alert alert-success">
+ <% out.print(session.getAttribute("statusMsg"));%>
+</div>
 
 <br>
 <%
  Item itemObj = new Item();
  out.print(itemObj.readItems());
 %>
+ </div>
+ </div>
+</div>
+
 
 
 </body>
